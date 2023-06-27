@@ -1,4 +1,5 @@
-import ExpenseDisplay from "./components/ExpenseDisplay";
+import React from "react";
+import ExpenseDisplay from "./components/Expenses/ExpenseDisplay";
 
 function App() {
   const expenses = [
@@ -24,6 +25,11 @@ function App() {
   ];
   //Podemos usar tambem como cara proprieade uma props: title={expenses[0].title} 
   //e passar para a prox componente corretamente
+
+  // return React.createElement('div', {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(ExpenseDisplay, { expenseArr: expenses })
+  // )
 
   return (
     <div>
