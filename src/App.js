@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpenseDisplay from "./components/Expenses/ExpenseDisplay";
 import NewExpense from "./components/NewExpense/NewExpense";
 
@@ -24,8 +24,20 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const [useExpense, setUseExpense] = useState(expenses)
   //Podemos usar tambem como cara proprieade uma props: title={expenses[0].title} 
   //e passar para a prox componente corretamente
+
+  const addExpenseHandler = expense => {
+    console.log('In App.js');
+    console.log(expense);
+    console.log('antes de setar');
+    console.log(useExpense);
+    setUseExpense(expense)
+    console.log('depois de setar');
+    console.log(useExpense);
+  }
 
   // return React.createElement('div', {},
   //   React.createElement('h2', {}, "Let's get started!"),
@@ -34,8 +46,8 @@ function App() {
 
   return (
     <div>
-      <NewExpense />
-      <ExpenseDisplay expenseArr={expenses} />
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <ExpenseDisplay expenseArr={useExpense} />
     </div>
   );
 }
